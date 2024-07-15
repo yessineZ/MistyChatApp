@@ -1,0 +1,81 @@
+npm i --save express dotenv cookie-parser bcryptjs mongoose socket.io jsonwebtoken 
+
+npm install nodemon --save-dev 
+
+ "type": "module" we add this to the package.json file so we can use import x from 'x' not const x = require('x)
+
+ const salt = bcrypt.genSalt() ; 
+const hashPass= bcrypt.hash(password,salt) ;
+
+
+
+
+
+
+
+----------------
+openssl rand -base64 32  //genereate secret key with git bash*
+
+
+
+-----------ctrl shift p // to use any move in vscode as reload window
+
+
+
+------------------daisyUI tailwind library 
+
+
+
+
+---------------https://tailwindcss-glassmorphism.vercel.app/  
+backdrop opacity genereator 
+
+
+
+ctrl k u -----------------uncomment
+
+
+
+
+
+
+
+
+https://react-icons.github.io/react-icons/search/#q=search            ----react icons
+
+
+
+
+
+https://react-hot-toast.com/  
+npm install react-hot-toast
+
+
+
+
+
+
+
+----------------------------shift alt A         to toogle comment uncomment block of code 
+
+
+
+
+
+
+
+-----------------------zustand
+https://zustand-demo.pmnd.rs/   //have hook named create its like useContext to use varaible in the intire app
+
+const __dirname = path.resolve() ; 
+
+
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
+app.get('*',(req,res) => {
+    res.sendFile(path.join(__dirname, 'frontend','dist','index.html'));
+
+})
+
+
+
+   "build" : "npm install && npm install --prefix frontend && npm run build --prefix frontend"
