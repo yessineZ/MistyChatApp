@@ -11,7 +11,7 @@ const useGetConversations = () => {
             setLoading(true);
             try {
                 const res = await axios.get('/api/users');
-                console.log('Response:', res.data); 
+                console.log('Response:', res); 
                 console.log("hey") ; 
                 setConversations(res.data); 
             } catch (error) {
