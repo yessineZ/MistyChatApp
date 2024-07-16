@@ -16,7 +16,14 @@ dotenv.config({
 
 const port = process.env.PORT; // Use the PORT environment variable
 
+const __dirname = path.resolve() ; 
 
+
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
+app.get('*',(req,res) => {
+    res.sendFile(path.join(__dirname, 'frontend','dist','index.html'));
+
+})
 app.use(cookieParser()); 
 app.use(express.json());  // to accept json data
 app.use(cors({
