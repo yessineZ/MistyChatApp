@@ -5,13 +5,13 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port : 3001 ,
+    host: true,
+strictPort: true,
     proxy: {
       '/api': {
         target: 'https://letschatmisty.onrender.com',
         changeOrigin: true,
         secure: false,
-        host: true,
-        strictPort: true,
         rewrite: (path) => path.replace(/^\/api/, '/api') ,
       }
     }
