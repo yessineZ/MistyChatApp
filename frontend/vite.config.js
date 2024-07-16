@@ -7,9 +7,11 @@ export default defineConfig({
     port : 3001 ,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'https://letschatmisty.onrender.com',
         changeOrigin: true,
         secure: false,
+        host: true,
+        strictPort: true,
         rewrite: (path) => path.replace(/^\/api/, '/api') ,
       }
     }
