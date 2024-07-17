@@ -13,7 +13,7 @@ export const SocketContextProvider = ({children}) => {
     const {authUser} = useAuthContext() ; 
     useEffect(() => {
         if(authUser) {
-            const socket = io("https://letschatmisty.onrender.com",{
+            const socket = io("https://letschatmisty.onrender.com/home",{
                 query : {
                     userId : authUser.id,
                    
