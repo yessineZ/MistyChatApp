@@ -10,20 +10,15 @@ import userRoutes from './routes/user.routes.js';
 import { app, server, io } from './socket/socket.js';
 import { connectToMongoDb } from './db/connectToMongo.js';
 
+const __dirname = path.resolve() ; 
+
 dotenv.config({
     path: './.env' // specify .env file location
 });
 
 const port = process.env.PORT; // Use the PORT environment variable
 
-const __dirname = path.resolve() ; 
 
-
-app.use(express.static(path.join(__dirname, 'frontend/dist')));
-app.get('*',(req,res) => {
-    res.sendFile(path.join(__dirname, 'frontend','dist','index.html'));
-
-})
 app.use(cookieParser()); 
 app.use(express.json());  // to accept json data
 app.use(cors({
@@ -48,3 +43,13 @@ app.get('/', (req, res) => {
 app.use("/api/auth", authRoutes); 
 app.use("/api/messages", messageRoutes); 
 app.use("/api/users", userRoutes);
+
+
+
+
+
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
+app.get('*',(req,res) => {
+    res.sendFile(path.join(__dirname, 'frontend','dist','index.html'));
+
+})
