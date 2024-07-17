@@ -7,6 +7,9 @@ const Message = ({ message }) => {
 	const { selectedConversation } = useConversation();
 	const {senderId , receiverId} = message ; 
 	const fromMe = senderId === authUser.id;
+	console.log(fromMe);
+	console.log(senderId);
+	console.log(authUser) ; 
 	const formattedTime = extractTime(message.createdAt);
 	const profilePic = fromMe ? authUser.profilePic : selectedConversation?.profilePic;
 	const bubbleBgColor = fromMe ? "bg-blue-500" : "";

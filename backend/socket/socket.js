@@ -8,7 +8,7 @@ import express from 'express' ;
 export const server = http.createServer(app) ; 
  export const io = new Server(server,{
     cors: {
-        origin: 'https://letschatmisty.onrender.com',
+        origin: '*',
         methods: ['GET', 'POST']
     }
  });
