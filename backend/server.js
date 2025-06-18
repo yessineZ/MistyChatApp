@@ -47,7 +47,7 @@ app.use("/api/users", userRoutes);
 
 
 app.route('/meta-webhook')
-    .get((req, res) => {
+    .get( async (req, res) => {
         const mode = req.query['hub.mode'];
         const token = req.query['hub.verify_token'];
         const challenge = req.query['hub.challenge'];
@@ -56,11 +56,20 @@ app.route('/meta-webhook')
 
         if (mode === 'subscribe' && token === VERIFY_TOKEN) {
             console.log('✅ Webhook verified');
+              const response = await axios.post(n8nWebhookUrl, req.body, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             res.status(200).send(challenge);
         } else {
             console.warn('❌ Webhook verification failed');
             res.sendStatus(403);
         }
+
+       
+
+            console.log('➡️ Forwarded to n8n with status:', response.status);
     })
     .post(async (req, res) => {
         console.log('📩 Webhook received from Meta:', JSON.stringify(req.body, null, 2));
