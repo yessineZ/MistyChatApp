@@ -9,6 +9,7 @@ import CheckAuth from './middlewares/checkAuth.js';
 import userRoutes from './routes/user.routes.js'; 
 import { app, server, io } from './socket/socket.js';
 import { connectToMongoDb } from './db/connectToMongo.js';
+import axios from 'axios' ;
 
 const __dirname = path.resolve() ; 
 
