@@ -51,11 +51,13 @@ app.route('/meta-webhook')
         const mode = req.query['hub.mode'];
         const token = req.query['hub.verify_token'];
         const challenge = req.query['hub.challenge'];
-
+         const n8nWebhookUrl = 'https://n8n.uat.platana.fr/webhook-test/2f5eae37-1bb0-4a73-b239-f63ba603f91';
+        
         const VERIFY_TOKEN = process.env.META_VERIFY_TOKEN || 'test';
 
         if (mode === 'subscribe' && token === VERIFY_TOKEN) {
             console.log('✅ Webhook verified');
+           
               const response = await axios.post(n8nWebhookUrl, req.body, {
                 headers: {
                     'Content-Type': 'application/json'
