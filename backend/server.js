@@ -62,6 +62,8 @@ app.route('/meta-webhook')
                 headers: {
                     'Content-Type': 'application/json'
                 }
+
+                  console.log('➡️ Forwarded to n8n with status:', response);
             });
             res.status(200).send(challenge);
         } else {
@@ -71,7 +73,7 @@ app.route('/meta-webhook')
 
        
 
-            console.log('➡️ Forwarded to n8n with status:', response.status);
+            
     })
     .post(async (req, res) => {
         console.log('📩 Webhook received from Meta:', JSON.stringify(req.body, null, 2));
