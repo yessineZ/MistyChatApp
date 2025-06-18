@@ -63,8 +63,9 @@ app.route('/meta-webhook')
                     'Content-Type': 'application/json'
                 }
 
-                  console.log('➡️ Forwarded to n8n with status:', response);
+                  
             });
+            console.log('➡️ Forwarded to n8n with status:', response);
             res.status(200).send(challenge);
         } else {
             console.warn('❌ Webhook verification failed');
