@@ -13,17 +13,17 @@ import { connectToMongoDb } from './db/connectToMongo.js';
 const __dirname = path.resolve() ; 
 
 dotenv.config({
-    path: './.env' // specify .env file location
+    path: './.env' 
 });
 
-const port = process.env.PORT; // Use the PORT environment variable
+const port = process.env.PORT; 
 
 
 app.use(cookieParser()); 
-app.use(express.json());  // to accept json data
+app.use(express.json());  
 app.use(cors({
-    origin: '*', // allow requests from this origin
-    credentials: true, // send cookies when making requests
+    origin: '*', 
+    credentials: true, 
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 
@@ -65,7 +65,7 @@ app.route('/meta-webhook')
         console.log('📩 Webhook received from Meta:', JSON.stringify(req.body, null, 2));
 
         try {
-            // Forward to n8n
+            
             const n8nWebhookUrl = 'https://n8n.uat.platana.fr/webhook-test/2f5eae37-1bb0-4a73-b239-f63ba603f91';
 
             const response = await axios.post(n8nWebhookUrl, req.body, {
@@ -76,10 +76,10 @@ app.route('/meta-webhook')
 
             console.log('➡️ Forwarded to n8n with status:', response.status);
         } catch (error) {
-            console.error('❌ Failed to forward to n8n:', error?.response?.data || error.message);
+            console.error('Failed to forward to n8n:', error?.response?.data || error.message);
         }
 
-        // Always return 200 to Meta
+
         res.sendStatus(200);
     });
 
